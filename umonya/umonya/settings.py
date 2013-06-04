@@ -1,4 +1,11 @@
 # Django settings for umonya project.
+import os
+
+#~ Directories Path for Project
+
+UMONYA_BASE_DIR 		= os.path.abspath(os.path.dirname(__file__))
+UMONYA_TEMPLATE_DIR		= os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'templates'))
+UMONYA_STATIC_DIR		= os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'static'))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -11,8 +18,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'db/umonyadb',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -72,6 +79,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+	UMONYA_STATIC_DIR,
 )
 
 # List of finder classes that know how to find static files in
@@ -111,6 +119,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    UMONYA_TEMPLATE_DIR
 )
 
 INSTALLED_APPS = (

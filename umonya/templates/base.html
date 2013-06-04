@@ -1,0 +1,90 @@
+{% load staticfiles %}{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb">
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<meta name="keywords" content="umonya, python, teach, africa, tutoring, programming, computer, science, cape, town, classes, uct, software, it, c, learn, how to, high, school, children, South Africa, Cape Town, teaching">
+		<meta name="description" content="Teaching Python to children and young people.">
+		<meta name="generator" content="Django">
+			<title>
+				{%block title%}
+					Umonya - Home
+				{%endblock%}
+			</title>
+		<link rel="stylesheet" href= {% static "css/960.css" %} />
+		<link rel="stylesheet" href= {% static "css/umonya.css" %} />
+		<link rel="stylesheet" href= {% static "css/bootstrap.css" %} />
+		
+		<script src= {% static "js/jquery.js" %} type="text/javascript"></script>
+		 <script src= {% static "js/bootstrap/bootstrap.js" %} type="text/javascript"></script>
+		 <script src= {% static "js/bootstrap/bootstrap-carousel.js" %} type="text/javascript"></script>
+		 
+	</head>
+	
+	<body>
+		<div id = "header">
+			<div class="container_12">
+				<div class="logo">
+					<img src= {% static "img/css/logo.png" %} border="0">
+				</div>
+				{%block header%}
+				{%endblock%}
+				
+				{% block slideshow %}
+				{% endblock %}
+			</div>
+			
+			<div class = "navbar">
+				<div class = "menu navbar-inner">
+					<div class = "container_12">
+						<ul class="nav">
+								<li class="item-101">
+									<span class="li-l"></span><span class="li-r"></span><a href="/">Home</a>
+								</li>
+								
+								<li class="item-106">
+									<span class="li-l"></span><span class="li-r"></span><a href="/about">About Us</a>
+								</li>
+								
+								<li class="item-107">
+									<span class="li-l"></span><span class="li-r"></span><a href="/registration">Registration Closed</a>
+								</li>
+								
+								<li class="item-152">
+									<span class="li-l"></span><span class="li-r"></span><a href="/resources">Resources</a>
+								</li>
+								
+								<li class="item-105">
+									<span class="li-l"></span><span class="li-r"></span><a href="/course">Course Schedule</a>
+								</li>
+								
+								<li class="item-105">
+									<span class="li-l"></span><span class="li-r"></span><a href="/contact">Contact us</a>
+								</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container_12">
+			
+			{%block content%}
+			
+			{%endblock%}
+		</div>
+		
+		<div id = "footer">
+			<div class = "container_12">
+				{%block footer%}
+					FOOTER
+				{%endblock%}
+			</div>
+		</div>
+	<script type = "text/javascript">
+
+	</script>
+	</body>
+</html>

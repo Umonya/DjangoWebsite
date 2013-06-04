@@ -6,7 +6,13 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'umonya.views.home', name='home'),
+    url(r'^$', 'main_app.views.home', name='home'),
+    url(r'^about/$', 'main_app.views.about'),
+    url(r'^resources/$', 'main_app.views.resources'),
+    url(r'^registration/$', 'main_app.views.registration'),
+    url(r'^contact/$', 'main_app.views.contact'),
+    url(r'^course/$', 'main_app.views.course'),
+    
     # url(r'^umonya/', include('umonya.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
