@@ -6,12 +6,7 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'umonya.app.main.views.home', name='home'),
-    url(r'^about/$', 'umonya.app.main.views.about'),
-    url(r'^resources/$', 'umonya.app.main.views.resources'),
-    url(r'^registration/$', 'umonya.app.main.views.registration'),
-    url(r'^contact/$', 'umonya.app.main.views.contact'),
-    url(r'^course/$', 'umonya.app.main.views.course'),
+    url(r"^",include("umonya.apps.main.urls")),
     
     # url(r'^umonya/', include('umonya.foo.urls')),
 

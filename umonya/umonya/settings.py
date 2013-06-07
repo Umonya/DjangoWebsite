@@ -4,8 +4,8 @@ import os
 #~ Directories Path for Project
 
 UMONYA_BASE_DIR 		= os.path.abspath(os.path.dirname(__file__))
-UMONYA_TEMPLATE_DIR		= os.path.abspath(os.path.join(os.path.dirname( __file__ ),'templates'))
-UMONYA_STATIC_DIR		= os.path.abspath(os.path.join(os.path.dirname( __file__ ), 'static'))
+UMONYA_TEMPLATE_DIR		= os.path.join(UMONYA_BASE_DIR,'templates')
+UMONYA_STATIC_DIR		= os.path.join(UMONYA_BASE_DIR, 'static')
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -123,13 +123,13 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+	'umonya.apps.main',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'umonya.app.main',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
