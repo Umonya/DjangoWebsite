@@ -65,6 +65,36 @@
 	min-height: 400px;
  }
 
+#sidebar{
+	padding:0;
+	float: right;
+	width: 320px;
+	margin: 0;
+	}
+	
+#sidebar .module{
+	padding:0 10px; 
+	margin:0 0 20px 0;
+	}
+	
+#sidebar .module-title{
+	font-size:30px; 
+	line-height:35px; 
+	color:#B37600;  
+	padding:0 0 0 10px; 
+	margin:0;
+	}
+	
+#sidebar h3 {
+	}
+#sidebar .module-body{margin:0; padding:0;}
+#sidebar .module-body p{
+	padding:0;
+	margin:0;}
+#sidebar .inner{ 
+	margin:0; 
+	padding:5px 10px ; }
+
 /**************************************************************************** 
 	STYLING THE FOOTER
 ****************************************************************************/

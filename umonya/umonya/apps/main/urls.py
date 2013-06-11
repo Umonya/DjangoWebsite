@@ -8,4 +8,5 @@ urlpatterns	= patterns('',
 	url(r'^registration/$', 'umonya.apps.main.views.registration'),
 	url(r'^contact/$', 'umonya.apps.main.views.contact'),
 	url(r'^course/$', 'umonya.apps.main.views.course'),
+	url(r'^blog/$', 'umonya.apps.main.views.blog'),
 )

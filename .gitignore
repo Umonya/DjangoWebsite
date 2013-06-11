@@ -2,3 +2,9 @@
 *.pot
 *.pyc
 local_settings.py
+
+#############
+## Ignore unfinished stuff
+#############
+/umonya/umonya/apps/blog
+/umonya/umonya/templates/unused
