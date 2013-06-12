@@ -17,3 +17,7 @@ class About(models.Model):
 	bios		= models.TextField()
 	bios_photo	= models.ImageField(upload_to = get_image_path, blank = True, null = True)
 	pub_date	= models.DateTimeField("date published")
+	
+class Page(models.Model):
+	page		= models.CharField(max_length = 200)
+	content		= models.TextField()
