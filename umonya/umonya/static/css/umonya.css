@@ -43,7 +43,7 @@
 .navbar .menu .nav > li > a {
 	color: white;
 	text-shadow: none;
-	width: 125px;
+	/* width: 125px; */
 	text-align: center;
 }
 
@@ -63,6 +63,10 @@
 ****************************************************************************/
 .body_content{
 	min-height: 400px;
+ }
+ 
+ .content_padding{
+	padding: 10px;
  }
 
 #sidebar{
@@ -94,6 +98,19 @@
 #sidebar .inner{ 
 	margin:0; 
 	padding:5px 10px ; }
+	
+#about_page{
+
+}
+
+#about_page .content_padding{
+	padding-top: 25px;
+}
+
+#about_page img{
+	padding: 10px;
+	background: rgb(196, 193, 193);
+}
 
 /**************************************************************************** 
 	STYLING THE FOOTER
