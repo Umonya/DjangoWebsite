@@ -1,4 +1,5 @@
 from django.shortcuts import render_to_response
+from models import About
 
 	# This checks the subdomain, but is unnecessary, if only /blog is used
 	# which means then the subdomain middleware can also be removed
@@ -11,7 +12,9 @@ def home(request):
 	return render_to_response("home.html")
 	
 def about(request):
-	return render_to_response("about.html")
+	about			= About.objects.all()
+	
+	return render_to_response("about.html", {'about': about})
 	
 def resources(request):
 	return render_to_response("resources.html")

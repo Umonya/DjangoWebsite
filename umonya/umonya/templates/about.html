@@ -1,4 +1,80 @@
 {%extends "base.html "%}
 
 {% block content %}
+<div id = "about_page" class = "grid_8">
+		<hr />
+		<h1> Overview </h1>
+		<hr />
+			<p>
+				There are relatively few IT teachers in South Africa, where we face problems 
+				of low skills base in IT. With the many employment opportunities in the field, 
+				it is difficult to increase the pool. In addition, many existing IT teachers 
+				lack modern skills and training in Computer Science.
+			</p>
+			
+			<p>
+				Umonya is an initiative that primarily aims to expand the availability and 
+				accessibility of computer science in South Africa. Allowing children who would 
+				usually not have the opportunity, to discover and pursue an interest in computer 
+				science and programming.
+			</p>
+		
+		<hr />
+		<h1> Objectives </h1>
+		<hr />
+		
+			<p>
+				Umonya's main objectives are to provide theoretic lectures and practical classes to 
+				teach high-school children how to program in Python as well as give them an environment 
+				where they can be tutored and guided in their computer skills.
+			</p>
+			
+			<p>
+				Umonya will provide an online community where School children can teach themselves to program 
+				through a structured, easy to learn online course. It will provide forums and discussion groups 
+				where they can freely seek help and guidance as well as find helpful information.
+			</p>
+			
+			<p>
+				Umonya's secondary objectives are to encourage children to enter the computer science field and educate 
+				them in the importance and relevance of computers in today's world.
+			</p>
+		
+		<hr />		
+		<h1> Why Python </h1>
+		<hr />
+		
+			<p>
+				Python is simple and emphasizes being explicit over implicit. It's open-source, has support locally and 
+				a strong, active and open online community. More than that, it's fun!
+			</p>
+			
+			<p>
+				For a more thorough discussion, read our blog post.
+			</p>
+			
+	<div class = "">
+		<hr />
+		<h1> Who we are </h1>
+		<hr />
+			{% for a in about %}
+				<div class = "grid_3" style = "margin-bottom: 30px;">
+					<h3> {{ a.name }} </h3>
+					<hr />
+					
+					<h3> {{ a.role }} </h3>
+					
+					<div class = "grid_3">
+						<img src ="/static/{{ a.bios_photo }}" width = "200" />
+					</div>
+					<div class = "clearfix"></div>
+					<div class = "content_padding">
+						{{ a.bios }}
+					</div>
+						
+				</div>
+				
+			{% endfor %}
+	</div>
+</div>
 {% endblock %}
