@@ -1,35 +1,69 @@
 from django.shortcuts import render_to_response
 from models import About, Page
 
-	# This checks the subdomain, but is unnecessary, if only /blog is used
-	# which means then the subdomain middleware can also be removed
-	#
-	# if request.subdomain == "blog":
-	#	return render_to_response("blog.html")
-	# else:
+    # This checks the subdomain, but is unnecessary, if only /blog is used
+    # which means then the subdomain middleware can also be removed
+    #
+    # if request.subdomain == "blog":
+    #   return render_to_response("blog.html")
+    # else:
+
 
 def home(request):
-	return render_to_response("home.html")
-	
+    """
+        Renders the home.html view which is used as the index page i.e
+        url path is www.umonya.org/
+    """
+    return render_to_response("home.html")
+
+
 def about(request):
-	about			= About.objects.all()
-	page_content	= Page.objects.all().filter(page = "about")
-	print page_content
-	
-	return render_to_response("about.html", {'about': about, "page_content":page_content})
-	
+    """
+        Renders the about.html view which is used as the index page i.e
+        url path is www.umonya.org/about/.
+        The view populates the content from data stored in the database
+    """
+    about = About.objects.all()
+    page_content = Page.objects.all().filter(page="about")
+    return render_to_response("about.html", {'about': about,
+                              "page_content": page_content})
+
+
 def resources(request):
-	return render_to_response("resources.html")
-	
+    """
+        Renders the resources.html view which is used as the index
+        page i.e url path is www.umonya.org/resources
+    """
+    return render_to_response("resources.html")
+
+
 def registration(request):
-	return render_to_response("registration.html")
-	
+    """
+        Renders the registration.html view which is used as the index
+        page i.e url path is www.umonya.org/registration/
+    """
+    return render_to_response("registration.html")
+
+
 def contact(request):
-	return render_to_response("contact.html")
-	
+    """
+        Renders the contact.html view which is used as the index page
+        i.e url path is www.umonya.org/contact/
+    """
+    return render_to_response("contact.html")
+
+
 def course(request):
-	return render_to_response("course.html")
+    """
+        Renders the course.html view which is used as the index page i.e
+        url path is www.umonya.org/course/
+    """
+    return render_to_response("course.html")
+
 
 def blog(request):
-	return render_to_response("blog.html")
-	
+    """
+        Renders the blog.html view which is used as the index page i.e
+        url path is www.umonya.org/blog/
+    """
+    return render_to_response("blog.html")
