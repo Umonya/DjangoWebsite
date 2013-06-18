@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from time import time
 
 
@@ -11,12 +12,45 @@ def get_image_path(instance, filename):
 
 
 class Announcement(models.Model):
-    title = models.CharField(max_length=200)
+    ''' 
+    Model for announcements
+    Stores title, body, event date, venue (can be blank) 
+    Date Published set on save.
+    '''
+    title = models.CharField(
+        max_length = 200, 
+        unique = True
+        )
     body = models.TextField()
-    pub_date = models.DateTimeField("date published")
-    event_date = models.DateTimeField("Event Date")
-    location = models.CharField(max_length=300)
+    pub_date = models.DateField(
+        "Date Published",
+        default = timezone.now().date(),
+        editable = False
+        )
+    event_date = models.DateTimeField(
+        "Event Date",
+        default = timezone.now())
+    venue = models.CharField(max_length = 300, blank=True)
+    slug = models.SlugField(editable = False)
+    class Meta:
+        ordering = ["pub_date"]
 
+    def __unicode__(self):
+        return u"%s %s" % (self.title, self.pub_date)
+
+    def save(self):
+        ''' 
+        Custom save function sets Date Published to current time on save
+        '''
+        self.slug = self.title.replace(" ","_")
+        self.pub_date = timezone.now().date()
+        super(Announcement, self).save()
+
+    def is_valid_date(self):
+        """ Checks if event date has passed """
+        if (self.event_date.date() < self.pub_date):
+            return False
+        return True
 
 class About(models.Model):
     """

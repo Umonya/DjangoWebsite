@@ -1,5 +1,5 @@
 from django.test import TestCase
-from models import About, Page
+from models import About, Page, Announcement
 import datetime
 from django.utils.timezone import utc
 
@@ -92,3 +92,16 @@ class TestPageContent(TestCase):
         self.assertEqual(content.role, "Umonya Role")
         self.assertEqual(content.bios, "Umonya Bios")
         self.assertEqual(content.bios_photo, "path/2/Um/Photo.png")
+
+class TestIsValidDate(TestCase):
+    """ Tests Announcement.is_valid_date by testing dates with known
+    results or outputs"""
+
+    def test_is_valid_date_tomorrow(self):
+        pub_date = timezone.now().date()
+        year = pub_date.year
+        month = pub_date.month
+        day = pub_date.day + 1
+        event_date = datetime.date(year,month,day)
+        test = models.Announcement(pub_date,event_date)
+        self.assertEqual(True, test.is_valid_date())
