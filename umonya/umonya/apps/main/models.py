@@ -30,8 +30,9 @@ class Announcement(models.Model):
         default = timezone.now())
     venue = models.CharField(max_length = 300, blank=True)
     slug = models.SlugField(editable = False)
+    
     class Meta:
-        ordering = ["pub_date"]
+        ordering = ["-pub_date"]
 
     def __unicode__(self):
         return u"%s %s" % (self.title, self.pub_date)
@@ -41,7 +42,6 @@ class Announcement(models.Model):
         Custom save function sets Date Published to current time on save
         '''
         self.slug = self.title.replace(" ","_")
-        self.pub_date = timezone.now().date()
         super(Announcement, self).save()
 
     def is_valid_date(self):

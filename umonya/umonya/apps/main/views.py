@@ -1,14 +1,6 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from models import About, Page, Announcement
 
-    # This checks the subdomain, but is unnecessary, if only /blog is used
-    # which means then the subdomain middleware can also be removed
-    #
-    # if request.subdomain == "blog":
-    #   return render_to_response("blog.html")
-    # else:
-
-
 def home(request, page_number=1):
     """
         Renders the home.html view which is used as the index page i.e
@@ -51,11 +43,25 @@ def home(request, page_number=1):
         })
 
 def view_announcement(request, page_number, slug):
+    """
+        Renders the view_announcement.html view which is used 
+        to show announcements 
+        i.e. url path is www.umonya.org/announcements/<page_number><slug> .
+        The announcement is found by the slug stored in the database
+    """
     announcement = get_object_or_404(Announcement,slug=slug)
     return render_to_response("view_announcement.html", {
         'announcement':announcement,
         'page_number': page_number
         })
+
+def custom_404(request, page_number, slug):
+    """
+        Renders the custom_404.html view which is used 
+        if the page is not found
+        i.e. url path is www.umonya.org/something .
+    """
+    return render_to_response("custom_404.html",)
 
 def about(request):
     """

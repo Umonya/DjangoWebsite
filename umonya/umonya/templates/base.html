@@ -67,56 +67,25 @@
 			</div>
 		</div>
 		
-		<div class="container_12 body_content">
+		<div class="container body_content">
 			
 			<div class="row">
-				<div class="span8">
+				<div class="span8"  style="margin: 0 10px 0 0; ">
 				{%block content%}
 			
 				{%endblock%}
 				</div>
 				<div class="span4">
 
-					<!--faceboook widget -->
-					<div>
-						<div id="fb-root"></div>
-						<script>(function(d, s, id) {
-							var js, fjs = d.getElementsByTagName(s)[0];
-							if (d.getElementById(id)) return;
-							js = d.createElement(s); js.id = id;
-							js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
-							fjs.parentNode.insertBefore(js, fjs);
-							}(document, 'script', 'facebook-jssdk'));</script>
-
-						<div class="fb-like" data-href="https://www.facebook.com/projectumonya" data-send="false" data-width="280" data-show-faces="true" data-font="lucida grande" data-colorscheme="dark"></div>
-
-					</div>
-
-					<!--Google+ Widget widget -->
-					<div>
-						<!-- Place this tag where you want the badge to render. -->
-						<div class="g-plus" data-href="https://plus.google.com/108023234245317429003" data-rel="publisher" data-theme="dark"></div>
-
-						<!-- Place this tag after the last badge tag. -->
-						<script type="text/javascript">
-						  window.___gcfg = {lang: 'en-GB'};
-
-						  (function() {
-						    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-						    po.src = 'https://apis.google.com/js/plusone.js';
-						    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-						  })();
-						</script>
-
-					<!-- Follow Button -->
-
-					<a href="https://twitter.com/projectumonya" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @projectumonya</a>
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-
 					<div>
 						<h3>Latest Tweets</h3>
 					</div>
+
+					<!-- Follow Button -->
+
+					<a href="https://twitter.com/projectumonya" class="twitter-follow-button" data-show-count="false" data-size="large" data-align="">Follow @projectumonya</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
 
 					<!--twitter widget -->
 					<div>
@@ -125,7 +94,33 @@
 					
 
 					</div>
-					
+
+					<!--faceboook widget -->
+					<div>
+						<div id="fb-root" class></div>
+						<script>(function(d, s, id) {
+						  var js, fjs = d.getElementsByTagName(s)[0];
+						  if (d.getElementById(id)) return;
+						  js = d.createElement(s); js.id = id;
+						  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+						  fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));</script>
+
+						<div class="fb-like" data-href="http://facebook.com/projectumonya" data-send="false" data-width="300" data-show-faces="true" data-font="lucida grande"></div>
+
+					</div>
+
+					<!--Google+ Widget widget -->
+					<div>
+						<!-- Place this tag in your head or just before your close body tag. -->
+						<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+						  {lang: 'en-GB'}
+						</script>
+
+						<!-- Place this tag where you want the badge to render. -->
+						<div class="g-plus" data-height="69" data-width="280" data-href="https://plus.google.com/108023234245317429003" data-rel="publisher" data-theme="light">
+							
+					</div>
 
 					</div>
 

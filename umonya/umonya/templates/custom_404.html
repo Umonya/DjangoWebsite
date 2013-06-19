@@ -1,0 +1,30 @@
+{%extends "base.html "%}
+
+
+{% block title %}{{ announcement.title }}{% endblock %}
+
+
+{% block content %}
+
+  <div class="span8">
+
+  <a href="#">
+    <h2>I don't think this is the page you were looking for</h2>
+  </a>
+
+  <ul>
+    <li>
+      <p>
+        "Oops, either you or I have made a mistkae. 
+        Well, we're not all perfect, but we try.  
+        Can you try this again or maybe visit our 
+        <a title="Umonya Home" href="{% url home %}">Home Page</a> 
+        to start fresh.  
+        We'll do better next time."
+      </p>
+    </li>
+  </ul>
+
+  </div>
+
+{% endblock %} 
