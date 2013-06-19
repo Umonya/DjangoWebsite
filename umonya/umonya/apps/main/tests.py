@@ -105,3 +105,12 @@ class TestIsValidDate(TestCase):
         event_date = datetime.date(year,month,day)
         test = models.Announcement(pub_date,event_date)
         self.assertEqual(True, test.is_valid_date())
+
+    def test_is_valid_date_yesterday(self):
+        pub_date = timezone.now().date()
+        year = pub_date.year
+        month = pub_date.month
+        day = pub_date.day - 1
+        event_date = datetime.date(year,month,day)
+        test = models.Announcement(pub_date,event_date)
+        self.assertEqual(False, test.is_valid_date())
