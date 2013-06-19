@@ -43,12 +43,12 @@
             <li>
               <a href="{{ path }}{{ page_number }}{{ announcement.slug }}">
                     <h3>{{ announcement.title }}</h3></a>
-                <p class='muted text-left'>
+                <p class="muted text-left">
                     <small>Created on {{ announcement.pub_date }}</small>
                 </p>
                 <p>
                     {{ announcement.body}}
-                </p><br>
+                </p>
             </li>
         {% endfor %}
         </ul>
@@ -62,7 +62,7 @@
         <li 
       {% if page_number == total_pages %} 
         class="previous disabled" >
-        <a href="">
+        <a href="#">
       {% else %} 
         class="previous active">
         <a href="{{ next }}">
@@ -72,7 +72,7 @@
         <li 
       {% if page_number == 1 %} 
         class="next disabled"> 
-        <a href="">
+        <a href="#">
       {% else %} 
         class="next active">
         <a href="{{ prev }}">
