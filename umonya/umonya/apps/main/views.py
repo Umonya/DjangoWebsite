@@ -22,10 +22,8 @@ def home(request, page_number=1):
     if total_announcements > 5:
         announcements = announcements[(page_number * 5)-5:page_number * 5]
         # get page numbers, and total pages
-        if (total_announcements % 5):
-            total_pages = (total_announcements // 5) + 1
-        else:
-            total_pages = (total_announcements // 5)
+        total_pages = total_announcements // 5
+        total_pages += total_announcements % 5 and 1 or 0
     else:
         announcements = announcements[:total_announcements]
         total_pages = 1
@@ -35,12 +33,12 @@ def home(request, page_number=1):
     host_s = host.split('/')
     if len(host_s) > 2:
         if host_s[1] == "announcements":
-            prev = "".join(["page",prev])
-            next = "".join(["page",next])
+            prev = "page%s" % (prev)
+            next = "page%s" % (next)
             path = ""
     else:
-        prev = "".join(["announcements/page",prev])
-        next = "".join(["announcements/page",next])
+        prev = "anouncements/page%s" % (prev)
+        next = "anouncements/page%s" % (next)
         path = "announcements/"
     return render_to_response(
         "home.html", 

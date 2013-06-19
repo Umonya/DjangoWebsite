@@ -19,14 +19,12 @@ class Announcement(models.Model):
     '''
     title = models.CharField(
         max_length = 200, 
-        unique = True
-        )
+        unique = True)
     body = models.TextField()
     pub_date = models.DateField(
         "Date Published",
         default = timezone.now().date(),
-        editable = False
-        )
+        editable = False)
     event_date = models.DateTimeField(
         "Event Date",
         default = timezone.now())
