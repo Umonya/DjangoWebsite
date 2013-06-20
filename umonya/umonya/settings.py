@@ -3,9 +3,9 @@ import os
 
 #~ Directories Path for Project
 
-UMONYA_BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-UMONYA_TEMPLATE_DIR = os.path.join(UMONYA_BASE_DIR, 'templates')
-UMONYA_STATIC_DIR = os.path.join(UMONYA_BASE_DIR, 'static')
+UMONYA_BASE_DIR 		= os.path.abspath(os.path.dirname(__file__))
+UMONYA_TEMPLATE_DIR		= os.path.join(UMONYA_BASE_DIR,'templates')
+UMONYA_STATIC_DIR		= os.path.join(UMONYA_BASE_DIR, 'static')
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -18,7 +18,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'umonya.db',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
@@ -122,13 +122,8 @@ TEMPLATE_DIRS = (
     UMONYA_TEMPLATE_DIR
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'umonya.apps.main.context_processors.dynamic_menu',
-)
-
 INSTALLED_APPS = (
-    'umonya.apps.main',
+	'umonya.apps.main',
     #~ 'umonya.apps.blog',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -169,17 +164,3 @@ LOGGING = {
         },
     }
 }
-
-# DEBUGGING STUFF
-INTERNAL_IPS = ("http://127.0.0.1")
-
-# EMAIL
-EMAIL_HOST = "127.0.0.1"
-# EMAIL_HOST_USER = "user"
-# EMAIL_HOST_PASSWORD = ""
-EMAIL_PORT = 1025
-EMAIL_USER_TLS = True
-
-# For development only if no mail server is present
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-EMAIL_FILE_PATH = os.path.join(UMONYA_BASE_DIR, "tmp")
