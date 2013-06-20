@@ -1,5 +1,10 @@
 from django.shortcuts import render_to_response
-from models import About, Page
+from models import About, Page, Dynamic_Section, Registration
+from forms import RegistrationForm
+from django.http import HttpResponseRedirect
+from django.core.context_processors import csrf
+from django.utils import timezone
+from django.template import RequestContext
 
     # This checks the subdomain, but is unnecessary, if only /blog is used
     # which means then the subdomain middleware can also be removed
@@ -10,60 +15,66 @@ from models import About, Page
 
 
 def home(request):
-    """
-        Renders the home.html view which is used as the index page i.e
-        url path is www.umonya.org/
-    """
-    return render_to_response("home.html")
+    return render_to_response("home.html", context_instance=RequestContext(request))
 
 
 def about(request):
-    """
-        Renders the about.html view which is used as the index page i.e
-        url path is www.umonya.org/about/.
-        The view populates the content from data stored in the database
-    """
     about = About.objects.all()
     page_content = Page.objects.all().filter(page="about")
     return render_to_response("about.html", {'about': about,
-                              "page_content": page_content})
+                              "page_content": page_content},
+                              context_instance=RequestContext(request))
 
 
 def resources(request):
-    """
-        Renders the resources.html view which is used as the index
-        page i.e url path is www.umonya.org/resources
-    """
-    return render_to_response("resources.html")
+    return render_to_response("resources.html", context_instance=RequestContext(request))
 
 
 def registration(request):
-    """
-        Renders the registration.html view which is used as the index
-        page i.e url path is www.umonya.org/registration/
-    """
-    return render_to_response("registration.html")
+    # pub_date = Registration(pub_date=timezone.now())
+    if request.method == "POST":
+        # f = RegistrationForm(request.POST, instance=pub_date)
+        f = RegistrationForm(request.POST)
+
+        if f.is_valid():
+            send_email_f(f)
+            return HttpResponseRedirect("/")
+
+    else:
+        f = RegistrationForm()
+
+    try:
+        section = Dynamic_Section.objects.get(section="registration")
+    except Dynamic_Section.DoesNotExist:
+        section = False
+
+    args = {}
+    args.update(csrf(request))
+    args["section"] = section
+    args["form"] = f
+
+    return render_to_response("registration.html", args,
+                              context_instance=RequestContext(request))
 
 
 def contact(request):
-    """
-        Renders the contact.html view which is used as the index page
-        i.e url path is www.umonya.org/contact/
-    """
-    return render_to_response("contact.html")
+    return render_to_response("contact.html", context_instance=RequestContext(request))
 
 
 def course(request):
-    """
-        Renders the course.html view which is used as the index page i.e
-        url path is www.umonya.org/course/
-    """
-    return render_to_response("course.html")
+    return render_to_response("course.html", context_instance=RequestContext(request))
 
 
 def blog(request):
-    """
-        Renders the blog.html view which is used as the index page i.e
-        url path is www.umonya.org/blog/
-    """
-    return render_to_response("blog.html")
+    return render_to_response("blog.html", context_instance=RequestContext(request))
+
+
+def send_email_f(f):
+    from django.core.mail import send_mail
+    subject = "User Registration"
+    message = ''
+    for item in f.cleaned_data:
+        message = message + item.upper() + "\n" + str(f.cleaned_data[item]) + "\n\n"
+    sender = "umonya@admin.com"
+    recipients = ["umonya@admin.com"]
+    send_mail(subject, message, sender, recipients)
