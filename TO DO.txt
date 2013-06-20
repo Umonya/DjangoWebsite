@@ -1,0 +1,15 @@
+TO DO
+	- Changed the page so that you don't need to syncdb for it to run.
+	- Code rid of the extra Pass command in contact form [Done]
+	- Changed Date Published. [Done]
+	- This really must not(!!!) be stored in the database. Want this emailed straight out - should not touch the DB at all.
+	- The model should be: Question - where the fields are type, text, etc etc, Storing the wrong thing in the DB - if this doesn't quite make sense, send me an email :)
+	- Please add a challenge question (which we can set from the admin interface) [N/A]
+	- Try testing with empty input fields as well - what happens then? [Done]
+	- Deleted Comments [Done]
+	- Created e-mail thing, will test to see if it works.
+	- added cleaned_data[].
+	- Delete the Carousel commented section [Done]
+	- Read up about how to do a correct README.md
+	- Change the path for a linux machine [Done]
+	- Is the table name Dynamicsections? Should rather by dynamic_sections or dynamicSections (preferably the first) [Done]
