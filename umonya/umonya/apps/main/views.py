@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-from django.shortcuts import render_to_response
-from models import About, Page, Dynamic_Section, Registration
+from django.shortcuts import render_to_response, get_object_or_404
+from models import About, Page, Dynamic_Section, Announcement
 from forms import RegistrationForm
 from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
-from django.utils import timezone
 from django.template import RequestContext
-=======
-from django.shortcuts import render_to_response, get_object_or_404
-from models import About, Page, Announcement
->>>>>>> 5fb43029521580f2a8f5ff24a79f4dcc50b24150
 
     # This checks the subdomain, but is unnecessary, if only /blog is used
     # which means then the subdomain middleware can also be removed
@@ -19,10 +13,6 @@ from models import About, Page, Announcement
     # else:
 
 
-<<<<<<< HEAD
-def home(request):
-    return render_to_response("home.html", context_instance=RequestContext(request))
-=======
 def home(request, page_number=1):
     """
         Renders the home.html view which is used as the index page i.e
@@ -31,7 +21,6 @@ def home(request, page_number=1):
     page_number = int(page_number)
     announcements = Announcement.objects.order_by("-pub_date")
     total_announcements = len(announcements)
->>>>>>> 5fb43029521580f2a8f5ff24a79f4dcc50b24150
 
     # gets section of announcements wanted for page
     if total_announcements > 5:
@@ -50,29 +39,31 @@ def home(request, page_number=1):
     host_s = host.split('/')
     if len(host_s) > 2:
         if host_s[1] == "announcements":
-            prev = "".join(["page",prev])
-            next = "".join(["page",next])
+            prev = "".join(["page", prev])
+            next = "".join(["page", next])
             path = ""
     else:
-        prev = "".join(["announcements/page",prev])
-        next = "".join(["announcements/page",next])
+        prev = "".join(["announcements/page", prev])
+        next = "".join(["announcements/page", next])
         path = "announcements/"
     return render_to_response(
-        "home.html", 
-        {'announcements':announcements,
-        'page_number': page_number, 
-        'total_pages':total_pages, 
-        'prev':prev, 
-        'next':next,
-        'path':path
+        "home.html",
+        {'announcements': announcements,
+        'page_number': page_number,
+        'total_pages': total_pages,
+        'prev': prev,
+        'next': next,
+        'path': path
         })
 
+
 def view_announcement(request, page_number, slug):
-    announcement = get_object_or_404(Announcement,slug=slug)
+    announcement = get_object_or_404(Announcement, slug=slug)
     return render_to_response("view_announcement.html", {
-        'announcement':announcement,
+        'announcement': announcement,
         'page_number': page_number
         })
+
 
 def about(request):
     about = About.objects.all()
