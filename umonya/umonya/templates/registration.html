@@ -2,4 +2,30 @@
 
 
 {% block content %}
+	{% if section.enabled %}
+        <h2> REGISTRATION </h2>
+        <div class="grid_7 prefix_1">
+            <form action="" method = "post">{% csrf_token %}
+                {% for field in form %}
+                    <div class="grid_6 form_content">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="alert alert-error">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+                <div class = "grid_6">
+            	  <input type = "submit" value="Register" />
+                </div>
+            </form>
+        </div>
+    {% else %}
+        <h1>
+            Sorry but the registration has closed.
+        </h1>
+    {% endif %}
 {% endblock %}

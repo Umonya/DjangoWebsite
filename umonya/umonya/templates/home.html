@@ -1,41 +1,58 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block slideshow %}
-<div id="myCarousel" class="grid_10 prefix_1 carousel slide">
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-	<li data-target="#myCarousel" data-slide-to="3"></li>
-  </ol>
-  <!-- Carousel items -->
-  <div class="carousel-inner">
-    <div class="active item">
-		<img src= {% static "img/pic/img_0757.med.jpg" %} border="0">
-	</div>
-	
-    <div class="item">
-		<img src= {% static "img/pic/img_0758.med.jpg" %} border="0">
-	</div>
-	
-    <div class="item">
-		<img src= {% static "img/pic/img_0759.med.jpg" %} border="0">
-	</div>
-	
-	<div class="item">
-		<img src= {% static "img/pic/img_0761.med.jpg" %} border="0">
-	</div>
-	
-  </div>
-  <!-- Carousel nav -->
-  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-</div>
 {% endblock %}
 
 {% block content %}
+
+    <div class="span8">
+    <h2>Announcements</h2>
+    {% if announcements %}
+        <ul>
+        {% for announcement in announcements %}
+            <li>
+              <a href="{{ path }}{{ page_number }}{{ announcement.slug }}">
+                    <h3>{{ announcement.title }}</h3></a>
+                <p class='muted text-left'>
+                    <small>Created on {{ announcement.pub_date }}</small>
+                </p>
+                <p>
+                    {{ announcement.body}}
+                </p><br>
+            </li>
+        {% endfor %}
+        </ul>
+
+    {% else %}
+        <p>There are no posts.</p>
+    {% endif %}
+    </div>
+
+    <ul class="pager">
+        <li 
+      {% if page_number == total_pages %} 
+        class="previous disabled" >
+        <a href="">
+      {% else %} 
+        class="previous active">
+        <a href="{{ next }}">
+      {% endif %}
+      &larr; Older</a>
+         </li>
+        <li 
+      {% if page_number == 1 %} 
+        class="next disabled"> 
+        <a href="">
+      {% else %} 
+        class="next active">
+        <a href="{{ prev }}">
+      {% endif %}
+      Newer &rarr;</a>
+        </li>
+    </ul>
+
 {% endblock %}
 
 <script type = "text/javascript">
-	$('.carousel').carousel()
+	// $('.carousel').carousel()
 </script>
