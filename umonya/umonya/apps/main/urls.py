@@ -9,4 +9,6 @@ urlpatterns = patterns('',
     url(r'^contact/$', 'umonya.apps.main.views.contact'),
     url(r'^course/$', 'umonya.apps.main.views.course'),
     url(r'^blog/$', 'umonya.apps.main.views.blog'),
+    url(r'^announcements/page(?P<page_number>\d+)$', 'umonya.apps.main.views.home'),
+    url(r'^announcements/(?P<page_number>\d+)(?P<slug>[^\.]+)$', 'umonya.apps.main.views.view_announcement'),
 )
