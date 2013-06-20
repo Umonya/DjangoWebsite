@@ -74,41 +74,45 @@
 		</div>
 		
 		<div class="container_12 body_content">
+<<<<<<< HEAD
 			<div class="grid_8">
 			{%block content%}
 			{%endblock%}
 			</div>
 			
+			<div id="sidebar">
+				<div class="module">
+					<div class="module-title">
+=======
 			
-		<div class="module">
-			<div class="module-title">		
-				<div id="sidebar">
-					<div class="row">
-						<div class="span4">
-							<div>
-								<h3>Latest Tweets</h3>
-							</div>
-
-							<!--twitter widget -->
-							<div>
-								<a class="twitter-timeline" href="https://twitter.com/projectumonya" data-widget-id="344727722985132032" data-theme="dark" data-link-color="#aaaaaa"  data-related="twitterapi,twitter" data-chrome="nofooter noheader noborders noscrollbar"data-aria-polite="assertive" width="300" height="300" lang="EN">Tweets by @projectumonya</a>
-								<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-							
-
-							</div>
-
-						<row>
-						{%block categories %}
-						{%endblock%}
-						</row>
-
-						</div>
-					</div>
+			<div class="row">
+				<div class="span8">
+				{%block content%}
+			
+				{%endblock%}
 				</div>
-			</div>
+				<div class="span4">
+					<div>
+>>>>>>> 5fb43029521580f2a8f5ff24a79f4dcc50b24150
+						<h3>Latest Tweets</h3>
+					</div>
+
+					<!--twitter widget -->
+					<div>
+						<a class="twitter-timeline" href="https://twitter.com/projectumonya" data-widget-id="344727722985132032" data-theme="dark" data-link-color="#aaaaaa"  data-related="twitterapi,twitter" data-chrome="nofooter noheader noborders noscrollbar"data-aria-polite="assertive" width="300" height="300" lang="EN">Tweets by @projectumonya</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					
+
+					</div>
+
+				<row>
+				{%block categories %}
+				{%endblock%}
+				</row>
+
+				</div>
 		</div>
-	</div>
-	
+
 		<div id = "footer">
 			<div class = "container_12">
 				{%block footer%}
