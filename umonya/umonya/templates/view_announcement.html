@@ -6,26 +6,29 @@
 
 {% block content %}
 
-    <div class="span8">
-    <a href="{{ page_number }}{{ announcement.slug }}">
-                    <h2>{{ announcement.title }}</h2></a>
-    <ul>
-        <li>
-            <p class='muted text-left'>
-                <small>Created on {{ announcement.pub_date }}</small>
-            </p>
-            <p>
-                {{ announcement.body}}
-            </p><br>
-        </li>
-    </ul>
-    </div>
+  <div class="span8">
 
-    <br>
-    <ul class="pager">
-        <li class="previous active">
-            <a href="page{{ page_number }}">&larr; Back</a>
-         </li>
-    </ul>
+  <a href="{{ page_number }}{{ announcement.slug }}">
+
+  <h2>{{ announcement.title }}</h2></a>
+
+  <ul>
+    <li>
+      <p class="muted text-left">
+        <small>Created on {{ announcement.pub_date }}</small>
+      </p>
+      <p>
+        {{ announcement.body}}
+      </p>
+    </li>
+  </ul>
+
+  </div>
+
+  <ul class="pager">
+    <li class="previous active">
+      <a href="page{{ page_number }}">&larr; Back</a>
+    </li>
+  </ul>
 
 {% endblock %} 

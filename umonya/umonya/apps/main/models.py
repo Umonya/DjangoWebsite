@@ -13,30 +13,27 @@ def get_image_path(instance, filename):
 
 class Announcement(models.Model):
     '''
-    Model for announcements
-    Stores title, body, event date, venue (can be blank)
-    Date Published set on save.
+        Model for announcements
+        Stores title, body, event date, venue (can be blank)
+        Date Published set on creation.
     '''
     title = models.CharField(
-        max_length=200,
-        unique=True
-        )
-
+        max_length = 200,
+        unique = True)
     body = models.TextField()
 
     pub_date = models.DateField(
         "Date Published",
-        default=timezone.now().date(),
-        editable=False
-        )
+        default = timezone.now().date(),
+        editable = False)
     event_date = models.DateTimeField(
         "Event Date",
-        default=timezone.now())
-    venue = models.CharField(max_length=300, blank=True)
-    slug = models.SlugField(editable=False)
+        default = timezone.now())
+    venue = models.CharField(max_length = 300, blank=True)
+    slug = models.SlugField(editable = False)
 
     class Meta:
-        ordering = ["pub_date"]
+        ordering = ["-pub_date"]
 
     def __unicode__(self):
         return u"%s %s" % (self.title, self.pub_date)
@@ -46,7 +43,6 @@ class Announcement(models.Model):
         Custom save function sets Date Published to current time on save
         '''
         self.slug = self.title.replace(" ","_")
-        self.pub_date = timezone.now().date()
         super(Announcement, self).save()
 
     def is_valid_date(self):
