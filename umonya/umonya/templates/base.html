@@ -18,6 +18,7 @@
 		<script src= {% static "js/jquery.min.js" %} type="text/javascript"></script>
 		<script src= {% static "js/bootstrap.min.js" %} type="text/javascript"></script>
 		<script src= {% static "js/bootstrap-carousel.js" %} type="text/javascript"></script>
+		<script src= {% static "js/jquery.validate.min.js" %} type="text/javascript"></script>
 		<script src= {% static "js/umonya.js" %} type="text/javascript"></script>	 
 	</head>
 	<body>
@@ -68,13 +69,45 @@
 		</div>
 		
 		<div class="container_12 body_content">
+<<<<<<< HEAD
+=======
 			
+>>>>>>> parent of 4819700... Updated Registration Form
 			<div class="grid_8">
 			{%block content%}
 			
 			{%endblock%}
 			</div>
 			
+<<<<<<< HEAD
+			
+		<div class="module">
+			<div class="module-title">		
+				<div id="sidebar">
+					<div class="row">
+						<div class="span4">
+							<div>
+								<h3>Latest Tweets</h3>
+							</div>
+
+							<!--twitter widget -->
+							<div>
+								<a class="twitter-timeline" href="https://twitter.com/projectumonya" data-widget-id="344727722985132032" data-theme="dark" data-link-color="#aaaaaa"  data-related="twitterapi,twitter" data-chrome="nofooter noheader noborders noscrollbar"data-aria-polite="assertive" width="300" height="300" lang="EN">Tweets by @projectumonya</a>
+								<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+							
+
+							</div>
+
+						<row>
+						{%block categories %}
+						{%endblock%}
+						</row>
+
+						</div>
+					</div>
+				</div>
+			</div>
+=======
 			<div id="sidebar">
 				<div class="module">
 					<div class="module-title">
@@ -88,8 +121,10 @@
 				</div>
 			</div>
 
+>>>>>>> parent of 4819700... Updated Registration Form
 		</div>
-
+	</div>
+	
 		<div id = "footer">
 			<div class = "container_12">
 				{%block footer%}

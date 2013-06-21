@@ -1,7 +1,11 @@
+<<<<<<< HEAD
+from tests import *
+=======
 from django.test import TestCase
 from models import About, Page
 import datetime
 from django.utils.timezone import utc
+>>>>>>> parent of 4819700... Updated Registration Form
 
 
 class TestPages(TestCase):

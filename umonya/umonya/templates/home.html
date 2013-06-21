@@ -34,6 +34,56 @@
 {% endblock %}
 
 {% block content %}
+<<<<<<< HEAD
+
+    <div class="grid_8">
+    <h2>Announcements</h2>
+    {% if announcements %}
+        <ul>
+        {% for announcement in announcements %}
+            <li>
+              <a href="{{ path }}{{ page_number }}{{ announcement.slug }}">
+                    <h3>{{ announcement.title }}</h3></a>
+                <p class='muted text-left'>
+                    <small>Created on {{ announcement.pub_date }}</small>
+                </p>
+                <p>
+                    {{ announcement.body}}
+                </p><br>
+            </li>
+        {% endfor %}
+        </ul>
+
+    {% else %}
+        <p>There are no posts.</p>
+    {% endif %}
+    </div>
+
+    <ul class="pager">
+        <li 
+      {% if page_number == total_pages %} 
+        class="previous disabled" >
+        <a href="">
+      {% else %} 
+        class="previous active">
+        <a href="{{ next }}">
+      {% endif %}
+      &larr; Older</a>
+         </li>
+        <li 
+      {% if page_number == 1 %} 
+        class="next disabled"> 
+        <a href="">
+      {% else %} 
+        class="next active">
+        <a href="{{ prev }}">
+      {% endif %}
+      Newer &rarr;</a>
+        </li>
+    </ul>
+
+=======
+>>>>>>> parent of 4819700... Updated Registration Form
 {% endblock %}
 
 <script type = "text/javascript">

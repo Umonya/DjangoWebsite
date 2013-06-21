@@ -164,3 +164,20 @@ LOGGING = {
         },
     }
 }
+<<<<<<< HEAD
+
+# DEBUGGING STUFF
+INTERNAL_IPS = ("http://127.0.0.1")
+
+# EMAIL
+# In order to debug do python smtp hosting on port 1025
+EMAIL_HOST = "127.0.0.1"
+# EMAIL_HOST_USER = "user"
+# EMAIL_HOST_PASSWORD = ""
+EMAIL_PORT = 1025
+EMAIL_USER_TLS = True
+
+# For development only if no mail server is present logs mail to console
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+=======
+>>>>>>> parent of 4819700... Updated Registration Form
