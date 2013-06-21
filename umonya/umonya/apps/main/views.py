@@ -1,14 +1,6 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from models import About, Page, Announcement
 
-    # This checks the subdomain, but is unnecessary, if only /blog is used
-    # which means then the subdomain middleware can also be removed
-    #
-    # if request.subdomain == "blog":
-    #   return render_to_response("blog.html")
-    # else:
-
-
 def home(request, page_number=1):
     """
         Renders the home.html view which is used as the index page i.e
@@ -22,10 +14,8 @@ def home(request, page_number=1):
     if total_announcements > 5:
         announcements = announcements[(page_number * 5)-5:page_number * 5]
         # get page numbers, and total pages
-        if (total_announcements % 5):
-            total_pages = (total_announcements // 5) + 1
-        else:
-            total_pages = (total_announcements // 5)
+        total_pages = total_announcements // 5
+        total_pages += total_announcements % 5 and 1 or 0
     else:
         announcements = announcements[:total_announcements]
         total_pages = 1
@@ -35,12 +25,12 @@ def home(request, page_number=1):
     host_s = host.split('/')
     if len(host_s) > 2:
         if host_s[1] == "announcements":
-            prev = "".join(["page",prev])
-            next = "".join(["page",next])
+            prev = "page%s" % (prev)
+            next = "page%s" % (next)
             path = ""
     else:
-        prev = "".join(["announcements/page",prev])
-        next = "".join(["announcements/page",next])
+        prev = "anouncements/page%s" % (prev)
+        next = "anouncements/page%s" % (next)
         path = "announcements/"
     return render_to_response(
         "home.html", 
@@ -53,11 +43,25 @@ def home(request, page_number=1):
         })
 
 def view_announcement(request, page_number, slug):
+    """
+        Renders the view_announcement.html view which is used 
+        to show announcements 
+        i.e. url path is www.umonya.org/announcements/<page_number><slug> .
+        The announcement is found by the slug stored in the database
+    """
     announcement = get_object_or_404(Announcement,slug=slug)
     return render_to_response("view_announcement.html", {
         'announcement':announcement,
         'page_number': page_number
         })
+
+def custom_404(request, page_number, slug):
+    """
+        Renders the custom_404.html view which is used 
+        if the page is not found
+        i.e. url path is www.umonya.org/something .
+    """
+    return render_to_response("custom_404.html",)
 
 def about(request):
     """

@@ -3,6 +3,9 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+# Sets custom 404 page
+handler404 = 'umonya.apps.main.views.custom_404'
+
 urlpatterns = patterns('',
     # Examples:
     url(r"^",include("umonya.apps.main.urls")),
