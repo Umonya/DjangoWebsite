@@ -1,4 +1,5 @@
 *.log
 *.pot
 *.pyc
+umonya.db
 local_settings.py
