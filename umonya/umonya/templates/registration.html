@@ -2,8 +2,7 @@
 
 
 {% block content %}
-<<<<<<< HEAD
-	{% if section.enabled %}
+    {% if section.enabled %}
         <h2> REGISTRATION </h2>
         <div class="grid_7 prefix_1">
             <form action="" method = "post" id = "registrationForm">{% csrf_token %}
@@ -20,7 +19,7 @@
                 {% endfor %}
 
                 <div class = "grid_6">
-            	  <input type = "submit" value="Register" />
+                  <input type = "submit" value="Register" />
                 </div>
             </form>
 
@@ -42,6 +41,4 @@
             Sorry but the registration has closed.
         </h1>
     {% endif %}
-=======
->>>>>>> parent of 4819700... Updated Registration Form
 {% endblock %}
