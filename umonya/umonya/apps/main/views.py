@@ -85,7 +85,9 @@ def registration(request):
 
         if f.is_valid():
             send_email_f(f)
-            return HttpResponseRedirect("/")
+            success = {"success": "success"}
+            return render_to_response("registration.html", success,
+                              context_instance=RequestContext(request))
 
     else:
         f = RegistrationForm()
