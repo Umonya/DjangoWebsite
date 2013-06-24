@@ -1,4 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
+    {% if success %}
+        <h1>
+            Thank You we have recieved your response
+        </h1>
+
+    {% else %}
+        <div class="span8">
+            <form action="" method="POST" id="contactForm">{% csrf_token %}
+                {% for field in form %}
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="alert alert-error">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <div class="span8">
+                    <input type = "submit" value="Send" />
+                </div>
+            </form>
+        </div>
+
+        <script type="text/javascript">
+            $().ready(function(){
+                $("#contactForm").validate()
+            });
+        </script>
+        
+    {% endif %}
+
 {% endblock %}
