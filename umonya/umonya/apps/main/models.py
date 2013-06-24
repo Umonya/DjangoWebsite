@@ -98,7 +98,8 @@ class Registration(models.Model):
 
 class Dynamic_Section(models.Model):
     """
-        Sections that can be enabled or disabled by admin such as registration form and menu
+        Sections that can be enabled or disabled by admin such
+        as registration form and menu
     """
     section = models.CharField(max_length=200)
     enabled = models.BooleanField()
