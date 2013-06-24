@@ -1,0 +1,9 @@
+language: python
+python:
+    - "2.6"
+    - "2.7"
+    - "pypy"
+install:
+    - pip install -r umonya/requirements.txt --use-mirrors
+    - umonya/manage.py syncdb --noinput
+script: umonya/manage.py test main
