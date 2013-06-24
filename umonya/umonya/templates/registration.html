@@ -4,10 +4,10 @@
 {% block content %}
     {% if section.enabled %}
         <h2> REGISTRATION </h2>
-        <div class="grid_7 prefix_1">
+        <div class="span8 prefix_1">
             <form action="" method = "post" id = "registrationForm">{% csrf_token %}
                 {% for field in form %}
-                    <div class="grid_6 form_content">
+                    <div class="span8 form_content">
                         {{ field.label_tag }}
                         {{ field }}
                         {% if field.errors %}
@@ -26,6 +26,11 @@
     <script type="text/javascript">
         $().ready(function(){
             $("#registrationForm").validate()
+            $(".digits").validate({
+                rules: {
+                    digits: true,
+                }
+            });
     });
     </script>
 
